@@ -8,12 +8,8 @@ on:
     branches:
       - main
 
-permissions:
-  contents: read
-
 jobs:
   terraform:
-    name: 'folder'
     runs-on: ubuntu-latest
 
     steps:
@@ -28,18 +24,21 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
+        aws-region: ap-south-1
 
     - name: Terraform Init
       run: terraform init
+      working-directory: Terra
 
     - name: Terraform Validate
       run: terraform validate
+      working-directory: Terra
 
     - name: Terraform Plan
       run: terraform plan -out=tfplan
+      working-directory: Terra
 
-    # Optional: require manual approval before apply
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main'
       run: terraform apply -auto-approve tfplan
+      working-directory: Terra
