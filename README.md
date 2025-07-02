@@ -1,1 +1,1 @@
-# TerraF
+Delete connfig.txt
