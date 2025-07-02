@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   terraform:
-    name: 'folder'
+    name: 'Terraform'
     runs-on: ubuntu-latest
 
     steps:
