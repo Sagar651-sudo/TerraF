@@ -1,1 +1,1 @@
-Delete connfig.txt
+Delete config.txt
