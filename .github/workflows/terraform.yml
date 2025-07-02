@@ -28,17 +28,17 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
-      working-directory: Terra
+      working-directory: folder
 
     - name: Terraform Validate
       run: terraform validate
-      working-directory: Terra
+      working-directory: folder
 
     - name: Terraform Plan
       run: terraform plan -out=tfplan
-      working-directory: Terra
+      working-directory: folder
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main'
       run: terraform apply -auto-approve tfplan
-      working-directory: Terra
+      working-directory: folder
